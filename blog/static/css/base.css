@@ -20,7 +20,9 @@ header h1 a {
 
 .nav-right {
     display: flex;
-    padding-top: 2rem;
+    margin-top: 2rem;
+    padding: auto;
+    margin: auto;
 }
 
 .post-entry {

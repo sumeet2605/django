@@ -23,9 +23,21 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <header>
-            <h1><a href="{% url 'home' %}">Home</a></h1>
-            <a href="">About</a>
+            <div class="nav-left">
+                <h1><a href="{% url 'home' %}">Home</a></h1>
+                {% comment %} <a href="">About</a> {% endcomment %}
+            </div>
+            <div class="nav-right">
+                <a href="{% url 'post_new' %}"> New Blog</a>
+            </div>
         </header>
+        {% if user.is_authenticated %}
+            <p>Hi {{ user.username }}!</p>
+            <p><a href="{% url 'logout' %}">Log Out</a>
+        {% else %}
+            <p>You are not logged in.</p>
+            <a href="{% url 'login' %}">Log In</a>
+        {% endif %}
 
 
         {% block content %}
